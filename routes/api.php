@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/ping', fn () => ['pong' => true]);
 
-Route::get('/v1/credenciales', [App\Http\Controllers\api\CredencialesController::class, 'index']);
+Route::get('/v1/credenciales', [App\Http\Controllers\api\CredencialesController::class, 'indexEncrypted']);
 Route::post('/v1/credenciales', [App\Http\Controllers\api\CredencialesController::class, 'store']);
 Route::post('/v1/credenciales/buscar', [App\Http\Controllers\api\CredencialesController::class, 'show']);
 Route::put('/v1/credenciales', [App\Http\Controllers\api\CredencialesController::class, 'update']);
