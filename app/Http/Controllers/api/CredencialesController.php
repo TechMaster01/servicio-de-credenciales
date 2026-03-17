@@ -9,13 +9,6 @@ use Illuminate\Http\Request;
 
 class CredencialesController extends Controller
 {
-    private $encryptionService;
-
-    public function __construct(CredencialesEncryptionService $encryptionService)
-    {
-        $this->encryptionService = $encryptionService;
-    }
-
     public function index()
     {
         try {
