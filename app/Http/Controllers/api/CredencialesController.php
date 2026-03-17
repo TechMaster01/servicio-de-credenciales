@@ -4,7 +4,6 @@ namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Credenciales;
-use App\Services\CredencialesEncryptionService;
 use Illuminate\Http\Request;
 
 class CredencialesController extends Controller
@@ -223,13 +222,13 @@ class CredencialesController extends Controller
             }
 
             // Mostrar datos tal como están en la BD (cifrados)
-            $credencialesCifradas = $credenciales->map(function ($credencial) {
+            /* $credencialesCifradas = $credenciales->map(function ($credencial) {
                 return $credencial->getAttributes();
-            });
+            }); */
 
             return response()->json([
                 'message' => 'Credenciales encontradas (datos cifrados).',
-                'data' => $credencialesCifradas
+                'data' => $credenciales
             ]);
         } catch (\Exception $e) {
             return response()->json([

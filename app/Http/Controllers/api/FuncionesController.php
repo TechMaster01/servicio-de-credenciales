@@ -10,7 +10,7 @@ use Illuminate\Contracts\Encryption\DecryptException;
 class FuncionesController extends Controller
 {
     /**
-     * Encriptar una credencial específica
+     * Encriptar datos
      */
     public function encrypt(Request $request)
     {
