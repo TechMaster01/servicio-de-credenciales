@@ -63,7 +63,7 @@ php artisan key:generate
 php -r "echo 'CREDENTIALS_ENCRYPTION_KEY=' . base64_encode(random_bytes(32)) . PHP_EOL;"
 ```
 
-Remplaza la lo que esta despues de "CREDENTIALS_ENCRYPTION_KEY=base64:" por la llave generada
+Remplaza la lo que esta despues de "CREDENTIALS_ENCRYPTION_KEY=base64:" por la llave generada en el archivo .env
 
 8. Ejecuta las migraciones:
 
