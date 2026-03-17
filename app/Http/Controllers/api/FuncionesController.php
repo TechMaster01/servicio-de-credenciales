@@ -20,7 +20,18 @@ class FuncionesController extends Controller
 
         try {
             $data = $request->input('data');
-            $encrypted = base64_encode($data);
+            
+            // 1. Obtener la llave específica de credenciales y decodificarla
+            $key = env('CREDENTIALS_ENCRYPTION_KEY');
+            if (strpos($key, 'base64:') === 0) {
+                $key = base64_decode(substr($key, 7));
+            }
+
+            // 2. Crear un encriptador con esta llave específica
+            $encrypter = new \Illuminate\Encryption\Encrypter($key, config('app.cipher', 'AES-256-CBC'));
+            
+            // 3. Encriptar los datos
+            $encrypted = $encrypter->encryptString($data);
             
             return response()->json([
                 'message' => 'Datos encriptados exitosamente.',
